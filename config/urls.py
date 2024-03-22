@@ -4,7 +4,8 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from livraria.views import CategoriaViewSet, EditoraViewSet, AutorViewSet, LivroViewSet
+from livraria.views import CategoriaViewSet, EditoraViewSet, AutorViewSet, LivroViewSet, CompraViewSet
+from usuario.views import UsuarioViewSet
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -26,6 +27,8 @@ router.register(r"categorias", CategoriaViewSet)
 router.register(r"editoras", EditoraViewSet)
 router.register(r"autores", AutorViewSet)
 router.register(r"livros", LivroViewSet)
+router.register(r"usuarios", UsuarioViewSet)
+router.register(r"compras", CompraViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
