@@ -19,3 +19,33 @@ class CompraSerializer(ModelSerializer):
         status = CharField(source="get_status_display", read_only=True)
         fields = ("id", "usuario", "status", "total", "itens")
         itens = ItensCompraSerializer(many=True, read_only=True)
+    
+    def update(self, instance, validated_data):
+        itens = validated_data.pop("itens")
+        if itens:
+            instance.itens.all().delete()
+            for item in itens:
+                ItensCompra.objects.create(compra=instance, **item)
+        instance.save()
+        return instance
+
+    
+class CriarEditarItensCompraSerializer(ModelSerializer):
+    class Meta:
+        model = ItensCompra
+        fields = ("livro", "quantidade")
+
+class CriarEditarCompraSerializer(ModelSerializer):
+    itens = CriarEditarItensCompraSerializer(many=True) # Aqui mudou
+
+    class Meta:
+        model = Compra
+        fields = ("usuario", "itens")
+
+    def create(self, validated_data):
+        itens_data = validated_data.pop("itens")
+        compra = Compra.objects.create(**validated_data)
+        for item_data in itens_data:
+            ItensCompra.objects.create(compra=compra, **item_data)
+        compra.save()
+        return compra
