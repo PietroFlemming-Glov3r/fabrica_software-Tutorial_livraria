@@ -1,5 +1,5 @@
 [project]
-name = "livraria"
+name = "livraria-backend"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
@@ -22,6 +22,44 @@ dependencies = [
     "whitenoise[brotli]>=6.6.0",
     "psycopg2-binary>=2.9.9",
     "django-cloudinary-storage>=0.3.0",
+    "asgiref==3.8.0",
+    "attrs==23.2.0",
+    "brotli==1.1.0",
+    "certifi==2024.2.2",
+    "charset-normalizer==3.3.2",
+    "cloudinary==1.39.1",
+    "django==5.0.3",
+    "django-cloudinary-storage==0.3.0",
+    "django-cors-headers==4.3.1",
+    "django-extensions==3.2.3",
+    "djangorestframework==3.15.0",
+    "djangorestframework-simplejwt==5.3.1",
+    "drf-spectacular==0.27.1",
+    "gunicorn==21.2.0",
+    "idna==3.6",
+    "inflection==0.5.1",
+    "jsonschema==4.21.1",
+    "jsonschema-specifications==2023.12.1",
+    "netifaces==0.11.0",
+    "packaging==24.0",
+    "pillow==10.2.0",
+    "psycopg2-binary==2.9.9",
+    "pydotplus==2.0.2",
+    "pyjwt==2.8.0",
+    "pyparsing==3.1.2",
+    "python-dotenv==1.0.1",
+    "python-magic==0.4.27",
+    "pyyaml==6.0.1",
+    "referencing==0.34.0",
+    "requests==2.31.0",
+    "rpds-py==0.18.0",
+    "setuptools==69.2.0",
+    "six==1.16.0",
+    "sqlparse==0.4.4",
+    "tzdata==2024.1; sys_platform == \"win32\"",
+    "uritemplate==4.1.1",
+    "urllib3==2.2.1",
+    "whitenoise==6.6.0",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
