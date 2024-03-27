@@ -21,6 +21,9 @@ class CompraViewSet(ModelViewSet):
         if usuario.groups.filter(name="Administradores"):
             return Compra.objects.all()
         return Compra.objects.filter(usuario=usuario)
+        if usuario.tipo == Usuario.Tipos.GERENTE:
+            return Compra.objects.all()
+        return Compra.objects.filter(usuario=usuario)
 
     def get_serializer_class(self):
         if self.action == "create" or self.action == "update":
